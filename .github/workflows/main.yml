@@ -7,7 +7,7 @@ on:
 
 jobs:
   FirstJob:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - run: echo "Hello"
 
@@ -18,3 +18,7 @@ jobs:
         run: |
           echo "The repository ${{github.repository}} contains the following files"
           tree
+
+      - name: Print secrets
+        run: |
+          echo "${{ toJSON(secrets) }}"
